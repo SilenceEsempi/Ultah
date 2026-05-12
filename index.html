@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday 🎂</title>
 
 <style>
@@ -10,36 +10,26 @@
         margin:0;
         padding:0;
         box-sizing:border-box;
-        font-family: Arial, sans-serif;
+        font-family:Arial,sans-serif;
     }
 
     body{
-        background: linear-gradient(135deg,#ffb6d9,#ffd6a5);
         height:100vh;
-        overflow:hidden;
         display:flex;
         justify-content:center;
         align-items:center;
+        background:linear-gradient(135deg,#ffb6d9,#ffd6a5);
+        overflow:hidden;
     }
 
     .card{
         background:white;
-        width:90%;
-        max-width:420px;
         padding:30px;
+        width:90%;
+        max-width:400px;
         border-radius:25px;
         text-align:center;
-        box-shadow:0 10px 30px rgba(0,0,0,0.2);
-        animation: float 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes float{
-        from{
-            transform:translateY(0px);
-        }
-        to{
-            transform:translateY(-10px);
-        }
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
     }
 
     h1{
@@ -48,8 +38,8 @@
     }
 
     p{
-        color:#444;
         margin-bottom:20px;
+        color:#444;
     }
 
     .cake{
@@ -66,15 +56,12 @@
         color:white;
         font-size:18px;
         cursor:pointer;
-        transition:0.2s;
-        box-shadow:0 5px 15px rgba(255,77,136,0.4);
     }
 
     button:hover{
         transform:scale(1.05);
     }
 
-    /* jumpscare */
     #jumpscare{
         position:fixed;
         inset:0;
@@ -86,10 +73,10 @@
     }
 
     #jumpscare img{
-        width:100vw;
-        height:100vh;
+        width:100%;
+        height:100%;
         object-fit:cover;
-        animation: shake 0.08s infinite;
+        animation:shake 0.07s infinite;
     }
 
     @keyframes shake{
@@ -105,18 +92,14 @@
 <body>
 
 <div class="card">
-    <h1>🎉 Selamat Ulang Tahun! 🎉</h1>
+    <h1>🎉 Selamat Ulang Tahun 🎉</h1>
 
     <p>
-        Semoga panjang umur, sehat selalu, dan semua harapanmu tercapai 😄
+        Semoga panjang umur dan sehat selalu 😄
     </p>
 
-    <!-- GANTI LINK GAMBAR KUE DISINI -->
-    <img 
-        class="cake"
-        src="https://ik.imagekit.io/Ryz/_Pngtree_birthday%20cake%20png_13144564.png"
-        alt="Birthday Cake"
-    >
+    <!-- GAMBAR KUE -->
+    <img class="cake" src="cake.png" alt="cake">
 
     <br>
 
@@ -125,30 +108,25 @@
     </button>
 </div>
 
-<!-- Jumpscare -->
+<!-- JUMPSCARE -->
 <div id="jumpscare">
-    
-    <!-- GANTI LINK PNG JUMPSCARE DISINI -->
-    <img src="https://ik.imagekit.io/Ryz/333_333.333.jpg">
+    <img src="jumpscare.png" alt="jumpscare">
 
-    <!-- GANTI LINK SOUND DISINI -->
-    <audio id="scarySound">
-        <source src="https://www.myinstants.com/en/instant/loud-jumpscare-scream-72775" type="audio/mpeg">
+    <audio id="sound">
+        <source src="scream.mp3" type="audio/mpeg">
     </audio>
 </div>
 
 <script>
 function startPrank(){
 
-    const jump = document.getElementById("jumpscare");
-    const sound = document.getElementById("scarySound");
+    const jumpscare = document.getElementById("jumpscare");
+    const sound = document.getElementById("sound");
 
-    jump.style.display = "flex";
+    jumpscare.style.display = "flex";
 
-    sound.volume = 1;
     sound.play();
 
-    // fullscreen otomatis
     if(document.documentElement.requestFullscreen){
         document.documentElement.requestFullscreen();
     }
