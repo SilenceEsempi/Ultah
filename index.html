@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday 🎂</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        background: linear-gradient(135deg,#ffb6d9,#ffd6a5);
+        height:100vh;
+        overflow:hidden;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .card{
+        background:white;
+        width:90%;
+        max-width:420px;
+        padding:30px;
+        border-radius:25px;
+        text-align:center;
+        box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        animation: float 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes float{
+        from{
+            transform:translateY(0px);
+        }
+        to{
+            transform:translateY(-10px);
+        }
+    }
+
+    h1{
+        color:#ff4d88;
+        margin-bottom:15px;
+    }
+
+    p{
+        color:#444;
+        margin-bottom:20px;
+    }
+
+    .cake{
+        width:200px;
+        border-radius:20px;
+        margin-bottom:20px;
+    }
+
+    button{
+        padding:14px 28px;
+        border:none;
+        border-radius:999px;
+        background:#ff4d88;
+        color:white;
+        font-size:18px;
+        cursor:pointer;
+        transition:0.2s;
+        box-shadow:0 5px 15px rgba(255,77,136,0.4);
+    }
+
+    button:hover{
+        transform:scale(1.05);
+    }
+
+    /* jumpscare */
+    #jumpscare{
+        position:fixed;
+        inset:0;
+        background:black;
+        display:none;
+        justify-content:center;
+        align-items:center;
+        z-index:9999;
+    }
+
+    #jumpscare img{
+        width:100vw;
+        height:100vh;
+        object-fit:cover;
+        animation: shake 0.08s infinite;
+    }
+
+    @keyframes shake{
+        0%{transform:translate(3px,3px);}
+        25%{transform:translate(-3px,2px);}
+        50%{transform:translate(2px,-3px);}
+        75%{transform:translate(-2px,-2px);}
+        100%{transform:translate(3px,-1px);}
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🎉 Selamat Ulang Tahun! 🎉</h1>
+
+    <p>
+        Semoga panjang umur, sehat selalu, dan semua harapanmu tercapai 😄
+    </p>
+
+    <!-- GANTI LINK GAMBAR KUE DISINI -->
+    <img 
+        class="cake"
+        src="https://i.imgur.com/oYiTqum.png"
+        alt="Birthday Cake"
+    >
+
+    <br>
+
+    <button onclick="startPrank()">
+        Buka Hadiah 🎁
+    </button>
+</div>
+
+<!-- Jumpscare -->
+<div id="jumpscare">
+    
+    <!-- GANTI LINK PNG JUMPSCARE DISINI -->
+    <img src="https://i.imgur.com/Z7AzH2c.png">
+
+    <!-- GANTI LINK SOUND DISINI -->
+    <audio id="scarySound">
+        <source src="https://www.myinstants.com/en/instant/loud-jumpscare-scream-72775/?utm_source=copy&utm_medium=share" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+function startPrank(){
+
+    const jump = document.getElementById("jumpscare");
+    const sound = document.getElementById("scarySound");
+
+    jump.style.display = "flex";
+
+    sound.volume = 1;
+    sound.play();
+
+    // fullscreen otomatis
+    if(document.documentElement.requestFullscreen){
+        document.documentElement.requestFullscreen();
+    }
+}
+</script>
+
+</body>
+</html>
